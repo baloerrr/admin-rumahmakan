@@ -45,6 +45,30 @@
     </div>
 
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const addProductButton = document.getElementById('add-product');
+            const productList = document.getElementById('product-list');
+
+            addProductButton.addEventListener('click', function() {
+                const newProduct = document.createElement('div');
+                newProduct.classList.add('input-group', 'mb-2');
+                newProduct.innerHTML = `
+                <input type="text" name="product[]" class="form-control" placeholder="Enter product">
+                <div class="input-group-append">
+                    <button type="button" class="btn btn-danger remove-product">Remove</button>
+                </div>
+            `;
+                productList.appendChild(newProduct);
+            });
+
+            productList.addEventListener('click', function(e) {
+                if (e.target.classList.contains('remove-product')) {
+                    e.target.closest('.input-group').remove();
+                }
+            });
+        });
+    </script>
 
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('template/vendor/jquery/jquery.min.js') }}"></script>

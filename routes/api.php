@@ -8,7 +8,8 @@ Route::middleware('auth:sanctum')->group(function () {
         return $request->user();
     });
 
-    Route::apiResource('/data', DataApiController::class);
-    Route::get('/latest', [DataApiController::class, 'latest']);
-    Route::get('/random', [DataApiController::class, 'random']);
 });
+Route::get("/galery", [DataApiController::class, 'galery']);
+Route::get("/tentang-kami", [DataApiController::class, 'tentangkami']);
+Route::get("/menu", [DataApiController::class, 'menu']);
+Route::get("/ulasan", [DataApiController::class, 'ulasan']);
